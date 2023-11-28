@@ -10,7 +10,7 @@ import UIKit
 class CustomTabBar: UIViewController {
     
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBarView: UIView!
     
@@ -22,7 +22,12 @@ class CustomTabBar: UIViewController {
     
     @IBOutlet weak var collapsedFavView: UIView!
     @IBOutlet weak var expandedFavView: UIView!
-    
+   
+    //MARK: - Variables
+
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     var isHomeSelected = true
     var isFavoriteSelected = false
     override func viewDidLoad() {
@@ -54,8 +59,6 @@ class CustomTabBar: UIViewController {
         expandedFavView.isHidden = true
         collapsedHomeView.isHidden = true
         tabBarView.layer.cornerRadius = tabBarView.layer.frame.size.height / 2
-        //tabBarView.layer.masksToBounds = true
-        
         tabBarView.layer.shadowColor = UIColor.black.cgColor
         tabBarView.layer.shadowOffset = CGSize(width: 0, height: 4) // Adjust the offset as needed
         tabBarView.layer.shadowOpacity = 0.8 // Adjust the opacity as needed
@@ -75,9 +78,6 @@ class CustomTabBar: UIViewController {
     
     @objc func homeStackOnClick(){
         if isHomeSelected == false {
-           // print("Home: 1 \(isHomeSelected)")
-           // print("fav: 1 \(isFavoriteSelected)")
-
             showHomeVC()
             expandedHomeView.isHidden = false
             collapsedHomeView.isHidden = true
@@ -86,19 +86,10 @@ class CustomTabBar: UIViewController {
             isFavoriteSelected = false
             isHomeSelected = true
         }
-//        else{
-//            print("Home: + \(isHomeSelected)")
-//            print("fav: + \(isFavoriteSelected)")
-//
-//            collapsedHomeView.isHidden = true
-//            expandedFavView.isHidden = false
-//        }
     }
     
     @objc func favoriteStackOnClick(){
         if isFavoriteSelected == false {
-          //  print("Home: 2 \(isHomeSelected)")
-           // print("fav: 2 \(isFavoriteSelected)")
             showFavoriteVC()
             expandedHomeView.isHidden = true
             collapsedHomeView.isHidden = false
@@ -107,11 +98,6 @@ class CustomTabBar: UIViewController {
             isFavoriteSelected = true
             isHomeSelected = false
         }
-//        else{
-//            print("Home: + \(isHomeSelected)")
-//            print("fav: + \(isFavoriteSelected)")
-//            collapsedFavView.isHidden = true
-//            expandedHomeView.isHidden = false
-//        }
     }
+    
 }

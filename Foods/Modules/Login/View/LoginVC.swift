@@ -9,7 +9,8 @@ import UIKit
 
 class LoginVC: UIViewController {
     
-    
+    //MARK: - IBOutlets
+
     @IBOutlet weak var passwordTFView: UIView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var emailTFView: UIView!
@@ -17,14 +18,16 @@ class LoginVC: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var showPasswordImg: UIImageView!
-    
+        
+    //MARK: - Variables
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
-    
     var isPasswordHidden = true
-    
     let color: UIColor = UIColor(red: 240.0/255.0, green: 141.0/255.0, blue: 2.0/255.0, alpha: 1.0)
+
+    //MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,26 +36,8 @@ class LoginVC: UIViewController {
         addEyeTapRecogniser()
     }
     
-    func SetUI(){
-        containerView.layer.cornerRadius = 30
-        viewTFDesign()
-        viewBtnDesign()
-    }
-    func viewTFDesign(){
-        emailTFView.layer.cornerRadius = 30
-        emailTFView.layer.borderWidth = 2.0
-        emailTFView.layer.borderColor = color.cgColor
-        passwordTFView.layer.cornerRadius = 30
-        passwordTFView.layer.borderWidth = 2.0
-        passwordTFView.layer.borderColor = color.cgColor
-    }
-    
-    func viewBtnDesign(){
-        loginBtn.layer.cornerRadius = 30
-        loginBtn.layer.borderWidth = 1.0
-        loginBtn.layer.borderColor = UIColor.darkGray.cgColor
-    }
-    
+    //MARK: - IBActions
+
     @IBAction func loginBtn(_ sender: Any) {
         let password = passwordTF.text
         let email = emailTF.text
@@ -74,7 +59,27 @@ class LoginVC: UIViewController {
     }
     
     
+    //MARK: - Methods
+
+    func SetUI(){
+        containerView.layer.cornerRadius = 30
+        viewTFDesign()
+        viewBtnDesign()
+    }
+    func viewTFDesign(){
+        emailTFView.layer.cornerRadius = 30
+        emailTFView.layer.borderWidth = 2.0
+        emailTFView.layer.borderColor = color.cgColor
+        passwordTFView.layer.cornerRadius = 30
+        passwordTFView.layer.borderWidth = 2.0
+        passwordTFView.layer.borderColor = color.cgColor
+    }
     
+    func viewBtnDesign(){
+        loginBtn.layer.cornerRadius = 30
+        loginBtn.layer.borderWidth = 1.0
+        loginBtn.layer.borderColor = UIColor.darkGray.cgColor
+    }
     func navigateToHome(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC")as! HomeVC
         vc.modalPresentationStyle = .fullScreen

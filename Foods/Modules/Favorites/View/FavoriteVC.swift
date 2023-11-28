@@ -8,13 +8,21 @@
 import UIKit
 
 class FavoriteVC: UIViewController {
+    
+    //MARK: - IBOutlets
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var noFavorites: UILabel!
-   
+    
+    //MARK: - Variables
+
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     var recipes:[RecipeRealm] = []
     var viewModel = FavoriteViewModel()
+    
+    //MARK: - View Controller LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +42,8 @@ class FavoriteVC: UIViewController {
 
     }
     
+    //MARK: - Methods
+
     func setTableViewConfiguration(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,6 +51,7 @@ class FavoriteVC: UIViewController {
     }
     
 }
+
 //MARK: - Extensions
 
 extension FavoriteVC : UITableViewDelegate,UITableViewDataSource{

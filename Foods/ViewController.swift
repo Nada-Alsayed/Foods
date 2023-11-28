@@ -8,7 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(navigate), userInfo: nil, repeats: false)

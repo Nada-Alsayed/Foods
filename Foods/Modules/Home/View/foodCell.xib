@@ -71,7 +71,7 @@
                                         <rect key="frame" x="213" y="0.0" width="71" height="88"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXd-Qb-dOT">
-                                                <rect key="frame" x="0.0" y="16" width="71" height="56"/>
+                                                <rect key="frame" x="0.0" y="16" width="71" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIT-or-cSV">
                                                         <rect key="frame" x="0.0" y="0.0" width="71" height="19.333333333333332"/>
@@ -80,10 +80,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lDL-xc-CGe">
-                                                        <rect key="frame" x="8" y="19.333333333333339" width="59" height="36.666666666666657"/>
+                                                        <rect key="frame" x="8" y="19.333333333333339" width="59" height="44.666666666666657"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="i6j-hU-qxh">
-                                                                <rect key="frame" x="0.0" y="10.333333333333329" width="16" height="15"/>
+                                                                <rect key="frame" x="0.0" y="14.333333333333336" width="16" height="15"/>
                                                                 <color key="tintColor" red="0.90346642700000002" green="0.5289516434" blue="0.0065802602819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="16" id="biF-uM-NBy"/>
@@ -91,7 +91,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wz5-bi-Ffy">
-                                                                <rect key="frame" x="24" y="10.666666666666664" width="35" height="15.666666666666664"/>
+                                                                <rect key="frame" x="24" y="14.666666666666664" width="35" height="15.666666666666664"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                 <color key="textColor" red="0.20430994520000001" green="0.20430994520000001" blue="0.20430994520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -117,7 +117,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="eXd-Qb-dOT" firstAttribute="leading" secondItem="5I9-wd-AJ7" secondAttribute="leading" id="94T-WH-t1d"/>
-                                            <constraint firstAttribute="bottom" secondItem="eXd-Qb-dOT" secondAttribute="bottom" constant="16" id="ULF-jj-gVd"/>
+                                            <constraint firstAttribute="bottom" secondItem="eXd-Qb-dOT" secondAttribute="bottom" constant="8" id="ULF-jj-gVd"/>
                                             <constraint firstAttribute="trailing" secondItem="eXd-Qb-dOT" secondAttribute="trailing" id="ed7-F1-akw"/>
                                             <constraint firstItem="eXd-Qb-dOT" firstAttribute="top" secondItem="5I9-wd-AJ7" secondAttribute="top" constant="16" id="r5d-eo-Mfw"/>
                                         </constraints>

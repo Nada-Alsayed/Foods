@@ -239,7 +239,7 @@
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zur-O0-0EL" userLabel="TabBarView">
-                                <rect key="frame" x="16" y="748" width="361" height="70"/>
+                                <rect key="frame" x="16" y="740" width="361" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1sg-oA-g94" userLabel="TabBarHS">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="70"/>
@@ -366,7 +366,7 @@
                             <constraint firstAttribute="bottom" secondItem="HKC-60-2CX" secondAttribute="bottom" id="5x3-Xi-oSP"/>
                             <constraint firstItem="Zur-O0-0EL" firstAttribute="leading" secondItem="RQF-Zk-TqE" secondAttribute="leading" constant="16" id="Ed8-mn-PUY"/>
                             <constraint firstItem="HKC-60-2CX" firstAttribute="leading" secondItem="RQF-Zk-TqE" secondAttribute="leading" id="HGo-bj-SGL"/>
-                            <constraint firstItem="RQF-Zk-TqE" firstAttribute="bottom" secondItem="Zur-O0-0EL" secondAttribute="bottom" id="RAJ-nO-PqA"/>
+                            <constraint firstItem="RQF-Zk-TqE" firstAttribute="bottom" secondItem="Zur-O0-0EL" secondAttribute="bottom" constant="8" id="RAJ-nO-PqA"/>
                             <constraint firstItem="HKC-60-2CX" firstAttribute="trailing" secondItem="RQF-Zk-TqE" secondAttribute="trailing" id="SuP-f8-3xC"/>
                             <constraint firstItem="RQF-Zk-TqE" firstAttribute="trailing" secondItem="Zur-O0-0EL" secondAttribute="trailing" constant="16" id="uhJ-ub-kKY"/>
                         </constraints>

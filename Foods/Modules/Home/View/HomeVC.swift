@@ -8,29 +8,33 @@
 import UIKit
 
 class HomeVC: UIViewController {
+    
+    //MARK: - IBOutlets
 
     @IBOutlet weak var tableView: UITableView!
+      
+    //MARK: - Variables
+
     var recipes:[Reciepe] = []
     var viewModel = HomeViewModel()
-    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
     
+    //MARK: - View Controller LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewConfiguration()
-        
         fetchData()
     }
+    
+    //MARK: - Methods
 
     func fetchData(){
         viewModel.bindResultToView = { [weak self]  in
-           // print("222")
             DispatchQueue.main.async {
                 self?.recipes = self?.viewModel.result ?? []
-               // print("5555\(self?.recipes.count)")
-
                 self?.tableView.reloadData()
             }
         }
@@ -38,8 +42,6 @@ class HomeVC: UIViewController {
     }
     
     func setTableViewConfiguration(){
-       // print("9999")
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: foodCell.id, bundle: nil), forCellReuseIdentifier: foodCell.id)
