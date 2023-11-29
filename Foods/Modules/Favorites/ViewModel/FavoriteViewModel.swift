@@ -28,6 +28,9 @@ class FavoriteViewModel{
         realmInstance.deleteFromRealm(recipe: recipe)
     }
     
+    func deleteFavRecipeById(id:String){
+        realmInstance.deleteFromRealmById(id: id)
+    }
     
     func insertFavRecipe(recipe:RecipeRealm){
         realmInstance.insertToRealm(recipe: recipe)

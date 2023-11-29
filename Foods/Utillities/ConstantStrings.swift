@@ -14,4 +14,10 @@ class ConstantsStrings{
     static let FAVORITE_VC = "FavoriteVC"
     static let DETAILS_VC = "DetailsVC"
     static let TABBAR_VC = "CustomTabBar"
+    
+    
+    static let PASSWORD = "accountPassword"
+    static let EMAIL = "accountEmail"
+    
+    
 }

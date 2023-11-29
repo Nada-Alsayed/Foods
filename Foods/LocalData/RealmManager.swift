@@ -42,6 +42,11 @@ class RealmManager{
         }
     }
 
+    func deleteFromRealmById(id:String){
+        guard let recipe = realmManager.object(ofType: RecipeRealm.self, forPrimaryKey: id) else { return  }
+        deleteFromRealm(recipe: recipe)
+    }
+    
     // Get all data from Realm
     func getAllRecipes() -> [RecipeRealm] {
         let recipes = realmManager.objects(RecipeRealm.self)

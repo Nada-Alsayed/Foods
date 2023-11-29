@@ -47,4 +47,12 @@ class foodCell: UITableViewCell {
         recipeTime.text = recipe.time
         recipeRate.text = "\(recipe.rating ?? 0.0) "
     }
+    
+    func configureCell(recipeRealm:RecipeRealm){
+      //  print("jjj\(recipeRealm)")
+        recipeImg.kf.setImage(with:URL(string: recipeRealm.image ?? ""))
+        recipeName.text = recipeRealm.name
+        recipeTime.text = recipeRealm.time
+        recipeRate.text = "\(recipeRealm.rating ) "
+    }
 }

@@ -35,4 +35,32 @@ class RecipeRealm: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+ 
+    func convertToRealmObject(from recipe: Reciepe) -> RecipeRealm {
+        let realmRecipe = RecipeRealm()
+        realmRecipe.id = recipe.id
+        realmRecipe.fats = recipe.fats
+        realmRecipe.name = recipe.name
+        realmRecipe.time = recipe.time
+        realmRecipe.image = recipe.image
+        realmRecipe.weeks?.append(objectsIn: recipe.weeks ?? [])
+        realmRecipe.carbos = recipe.carbos
+        realmRecipe.fibers = recipe.fibers
+        realmRecipe.rating = recipe.rating ?? 0.0
+        realmRecipe.country = recipe.country
+        realmRecipe.ratings = recipe.ratings ?? 0
+        realmRecipe.calories = recipe.calories
+        realmRecipe.headline = recipe.headline
+        realmRecipe.keywords?.append(objectsIn: recipe.keywords ?? [])
+        realmRecipe.products?.append(objectsIn: recipe.products ?? [])
+        realmRecipe.proteins = recipe.proteins
+        realmRecipe.favorites = recipe.favorites ?? 0
+        realmRecipe.difficulty = recipe.difficulty ?? 0
+        realmRecipe.recipeDescription = recipe.description
+        realmRecipe.highlighted = recipe.highlighted ?? false
+        realmRecipe.ingredients?.append(objectsIn: recipe.ingredients ?? [])
+        realmRecipe.deliverableIngredients?.append(objectsIn: recipe.deliverableIngredients ?? [])
+          
+          return realmRecipe
+    }
 }

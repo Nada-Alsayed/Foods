@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class LoginVC: UIViewController {
     
@@ -24,6 +25,9 @@ class LoginVC: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
+    let keychain = KeychainSwift()
+
+
     var isPasswordHidden = true
     let color: UIColor = UIColor(red: 240.0/255.0, green: 141.0/255.0, blue: 2.0/255.0, alpha: 1.0)
 
@@ -46,12 +50,14 @@ class LoginVC: UIViewController {
         !(email?.isEmpty ?? true) {
             guard let password = password else {return}
             guard let email = email else {return}
-            if !isValidEmail(email){
-                AlertCreator().showToast(controller: self, message:"Invalid email", seconds: 2)
-            } else if !isValidPassword(password){
-                AlertCreator().showToast(controller: self, message:"Invalid password", seconds: 2)
+            if isValidEmail(email)
+                && isValidPassword(password)
+            {
+                keychain.set(password, forKey: ConstantsStrings.PASSWORD)
+                keychain.set(email, forKey: ConstantsStrings.EMAIL)
+                navigateToHome()
             } else {
-                
+                AlertCreator().showToast(controller: self, message:"Data not valid", seconds: 2)
             }
         }else{
             AlertCreator().showToast(controller: self, message:"Please enter all fields", seconds: 2)
@@ -81,7 +87,7 @@ class LoginVC: UIViewController {
         loginBtn.layer.borderColor = UIColor.darkGray.cgColor
     }
     func navigateToHome(){
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC")as! HomeVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBar")as! CustomTabBar
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
