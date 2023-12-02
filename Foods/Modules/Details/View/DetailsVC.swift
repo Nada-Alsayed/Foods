@@ -25,9 +25,7 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var ingredientHeightCon: NSLayoutConstraint!
     
     //MARK: - Variables
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
+    
     var recipe : Reciepe?
     lazy var viewModel = FavoriteViewModel()
     
@@ -40,24 +38,17 @@ class DetailsVC: UIViewController {
         setPageWithData()
         setPageUI()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.addObserver(self, forKeyPath: "contentSize",options: .new , context: nil)
-        
-        if viewModel.isRecipeExist(recipeID: recipe?.id ?? "0") == true
-        {
-        //    print("mm")
-            favoriteImg.image = UIImage(systemName: "heart.fill")
-        }else{
-        //    print("22")
-            favoriteImg.image  = UIImage(systemName: "heart")
-        }
-        
+        showFavoriteImg()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.tableView.removeObserver(self, forKeyPath: "contentSize")
     }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-       // print("Hello")
         if keyPath == "contentSize" {
                 if object as? UITableView == tableView {
                     if let newvalue = change?[.newKey] as? CGSize {
@@ -96,6 +87,15 @@ class DetailsVC: UIViewController {
         recipeImg.kf.setImage(with:URL(string: recipe.image ?? ""))
     }
     
+    func showFavoriteImg(){
+        if viewModel.isRecipeExist(recipeID: recipe?.id ?? "0") == true
+        {
+            favoriteImg.image = UIImage(systemName: "heart.fill")
+        }else{
+            favoriteImg.image  = UIImage(systemName: "heart")
+        }
+    }
+    
     func setPageUI(){
         recipeImg.layer.cornerRadius = recipeImg.layer.bounds.size.height / 2
     }
@@ -109,7 +109,7 @@ class DetailsVC: UIViewController {
     @objc func addToFavorite(){
         if viewModel.isRecipeExist(recipeID: recipe?.id ?? "0") == true
         {
-            AlertCreator().showAlertWithAction(title: "Delete alert!", titleAction: "Delete", titleNoAction: "No", message: "Are you sure you want to delete this recipe from your favorite recipes list?", viewController: self) {
+            showAlertWithAction(title: "Delete alert!", titleAction: "Delete", titleNoAction: "No", message: "Are you sure you want to delete this recipe from your favorite recipes list?", viewController: self) {
                 self.favoriteImg.image  = UIImage(systemName: "heart")
                 self.viewModel.deleteFavRecipeById(id: self.recipe?.id ?? "")
             }
@@ -117,7 +117,7 @@ class DetailsVC: UIViewController {
         }else{
             viewModel.insertFavRecipe(recipe: RecipeRealm().convertToRealmObject(from: self.recipe ?? Reciepe()))
             favoriteImg.image = UIImage(systemName: "heart.fill")
-            AlertCreator().showToast(controller: self, message: "Recipe added to your favorites successfully", seconds: 2)
+            showToast(controller: self, message: "Recipe added to your favorites successfully", seconds: 2)
         }
     }
 }
@@ -131,13 +131,8 @@ extension DetailsVC : UITableViewDelegate , UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: igredientsCell.id, for: indexPath) as!igredientsCell
-        
         cell.addCellConfiguration(label: recipe?.ingredients?[indexPath.row])
-        
         return cell
     }
 }
 
-extension DetailsVC {
-    func checkIfRecipeExist(){}
-}

@@ -10,8 +10,9 @@ import Alamofire
 
 class NetworkManager {
     
+    //MARK: - Methods
+
     func fetchData<T:Codable>(url:URL,complition : @escaping (T?,Error?) -> () ){
-     //     print("lll")
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseDecodable(of: T.self) { response in
             switch response.result{
             case .success(let data):

@@ -30,7 +30,8 @@ struct Reciepe: Codable {
         case deliverableIngredients = "deliverable_ingredients"
      
     }
-    func convertToRecipe(from realmRecipe: RecipeRealm) -> Reciepe {
+    
+     func convertToRecipe(from realmRecipe: RecipeRealm) -> Reciepe {
         var recipe = Reciepe()
 
         recipe.id = realmRecipe.id

@@ -9,20 +9,23 @@ import Foundation
 
 class FavoriteViewModel{
     
+    //MARK: - Variables
+
     var realmInstance : RealmManager!
-    
     var bindResultToView : (()->()) = {}
-    
     var favoritesArray:[RecipeRealm]!
     
+    //MARK: - Init
+
     init( realmInstance: RealmManager = RealmManager.sharedInstance) {
         self.realmInstance = realmInstance
     }
     
+    //MARK: - Methods
+
     func getSoredFavs() -> [RecipeRealm]{
         return realmInstance.getAllRecipes()
     }
-    
     
     func deleteFavRecipe(recipe:RecipeRealm){
         realmInstance.deleteFromRealm(recipe: recipe)

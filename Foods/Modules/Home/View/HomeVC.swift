@@ -12,8 +12,8 @@ import Reachability
 class HomeVC: UIViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var indicatorView: UIView!
     
+    @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var signOut: UIImageView!
@@ -23,12 +23,9 @@ class HomeVC: UIViewController {
     var recipes:[Reciepe] = []
     var viewModel = HomeViewModel()
     var keychain = KeychainSwift()
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
     
     //MARK: - View Controller LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView.layer.cornerRadius =
@@ -40,18 +37,19 @@ class HomeVC: UIViewController {
     }
     
     //MARK: - Methods
-
+    
     func fetchData(){
         indicator.startAnimating()
         viewModel.bindResultToView = { [weak self]  in
+            guard let self = self else {return}
             DispatchQueue.main.async {
-                self?.recipes = self?.viewModel.result ?? []
-                self?.indicator.stopAnimating()
-                self?.indicatorView.isHidden = true
-                self?.tableView.reloadData()
+                self.recipes = self.viewModel.result
+                self.indicator.stopAnimating()
+                self.indicatorView.isHidden = true
+                self.tableView.reloadData()
             }
         }
-        viewModel.getData()
+        viewModel.getData(vc: self)
     }
     
     func setTableViewConfiguration(){
@@ -69,24 +67,18 @@ class HomeVC: UIViewController {
     func checkNetwork(){
         do {
             let reachability = try Reachability()
-            reachability.whenReachable = { reachability in
-                if reachability.connection == .wifi {
-                    print("Reachable via WiFi")
-                    self.fetchData()
-                }
+            if reachability.connection != .unavailable {
+                print("Reachable via WiFi")
+                self.fetchData()
             }
-        
-        reachability.whenUnreachable = { _ in
-            AlertCreator().showToast(controller: self, message: "Check your internet connection", seconds: 1.5)
-        }
-
+            
         }catch{
             print(error.localizedDescription)
         }
     }
     
     @objc func logout(){
-        AlertCreator().showAlertWithAction(title: "Logout Alert!", titleAction: "Logout", titleNoAction: "No", message: "Are you sure you want to logout?", viewController: self) {
+        showAlertWithAction(title: "Logout Alert!", titleAction: "Logout", titleNoAction: "No", message: "Are you sure you want to logout?", viewController: self) {
             self.keychain.clear()
             self.navigateToLogin()
         }

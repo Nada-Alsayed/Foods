@@ -8,22 +8,18 @@
 import UIKit
 
 class igredientsCell: UITableViewCell {
+    
+    //MARK: - IBOutlets
 
     @IBOutlet weak var Ingredient: UILabel!
+    
+    //MARK: - Variables
+
     static let id = String(describing: igredientsCell.self)
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    
+    //MARK: - Methods
 
     func addCellConfiguration(label : String?){
         Ingredient.text = label ?? "N/A"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

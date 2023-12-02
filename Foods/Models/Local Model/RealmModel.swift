@@ -9,6 +9,9 @@ import Foundation
 import RealmSwift
 
 class RecipeRealm: Object {
+    
+    //MARK: - Variables
+    
     @objc dynamic var id: String?
     @objc dynamic var fats: String?
     @objc dynamic var name: String?
@@ -32,10 +35,12 @@ class RecipeRealm: Object {
     var ingredients: List<String>?
     var deliverableIngredients: List<String>?
     
+    //MARK: - Methods
+    
     override static func primaryKey() -> String? {
         return "id"
     }
- 
+    
     func convertToRealmObject(from recipe: Reciepe) -> RecipeRealm {
         let realmRecipe = RecipeRealm()
         realmRecipe.id = recipe.id

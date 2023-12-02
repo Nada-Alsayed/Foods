@@ -9,30 +9,28 @@ import UIKit
 import Kingfisher
 
 class foodCell: UITableViewCell {
-
+    
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var recipeImg: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeRate: UILabel!
     @IBOutlet weak var recipeTime: UILabel!
     @IBOutlet weak var view: UIView!
-    
     @IBOutlet weak var containerView: UIView!
     
+    //MARK: - Variables
     
     static let id = String(describing: foodCell.self)
-    
     let color: UIColor = UIColor(red: 240.0/255.0, green: 141.0/255.0, blue: 2.0/255.0, alpha: 1.0)
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setCellUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    //MARK: - Methods
+    
     func setCellUI(){
         view.addBorder(to: .left, color: color, thickness: 2.0)
         containerView.layer.cornerRadius = 20
@@ -49,7 +47,6 @@ class foodCell: UITableViewCell {
     }
     
     func configureCell(recipeRealm:RecipeRealm){
-      //  print("jjj\(recipeRealm)")
         recipeImg.kf.setImage(with:URL(string: recipeRealm.image ?? ""))
         recipeName.text = recipeRealm.name
         recipeTime.text = recipeRealm.time

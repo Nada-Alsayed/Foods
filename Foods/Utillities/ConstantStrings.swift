@@ -8,14 +8,17 @@
 import Foundation
 
 class ConstantsStrings{
+    
     //MARK: - ViewControllers names
+    
     static let HOME_VC = "HomeVC"
     static let LOGIN_VC = "LoginVC"
     static let FAVORITE_VC = "FavoriteVC"
     static let DETAILS_VC = "DetailsVC"
     static let TABBAR_VC = "CustomTabBar"
     
-    
+    //MARK: - keychain
+
     static let PASSWORD = "accountPassword"
     static let EMAIL = "accountEmail"
     

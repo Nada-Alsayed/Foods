@@ -22,12 +22,7 @@ class LoginVC: UIViewController {
         
     //MARK: - Variables
 
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
     let keychain = KeychainSwift()
-
-
     var isPasswordHidden = true
     let color: UIColor = UIColor(red: 240.0/255.0, green: 141.0/255.0, blue: 2.0/255.0, alpha: 1.0)
 
@@ -57,10 +52,10 @@ class LoginVC: UIViewController {
                 keychain.set(email, forKey: ConstantsStrings.EMAIL)
                 navigateToHome()
             } else {
-                AlertCreator().showToast(controller: self, message:"Data not valid", seconds: 2)
+                showToast(controller: self, message:"Data not valid", seconds: 2)
             }
         }else{
-            AlertCreator().showToast(controller: self, message:"Please enter all fields", seconds: 2)
+           showToast(controller: self, message:"Please enter all fields", seconds: 2)
         }
     }
     

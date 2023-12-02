@@ -13,21 +13,18 @@ class CustomTabBar: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBarView: UIView!
-    
     @IBOutlet weak var homeStack: UIStackView!
     @IBOutlet weak var favoriteStack: UIStackView!
-    
     @IBOutlet weak var collapsedHomeView: UIView!
     @IBOutlet weak var expandedHomeView: UIView!
-    
     @IBOutlet weak var collapsedFavView: UIView!
     @IBOutlet weak var expandedFavView: UIView!
    
     //MARK: - Variables
 
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle{
+//        return .lightContent
+//    }
     var isHomeSelected = true
     var isFavoriteSelected = false
     override func viewDidLoad() {
@@ -40,7 +37,7 @@ class CustomTabBar: UIViewController {
     //MARK: - Methods
     
     func showHomeVC(){
-        guard let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else {return}
+        guard let home = self.storyboard?.instantiateViewController(withIdentifier: ConstantsStrings.HOME_VC) as? HomeVC else {return}
         self.addChild(home)
         home.view.frame = containerView.bounds
         containerView.addSubview(home.view)
@@ -48,7 +45,7 @@ class CustomTabBar: UIViewController {
     }
     
     func showFavoriteVC(){
-        guard let favorite = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC") as? FavoriteVC else {return}
+        guard let favorite = self.storyboard?.instantiateViewController(withIdentifier: ConstantsStrings.FAVORITE_VC) as? FavoriteVC else {return}
         self.addChild(favorite)
         favorite.view.frame = containerView.bounds
         containerView.addSubview(favorite.view)
@@ -60,9 +57,9 @@ class CustomTabBar: UIViewController {
         collapsedHomeView.isHidden = true
         tabBarView.layer.cornerRadius = tabBarView.layer.frame.size.height / 2
         tabBarView.layer.shadowColor = UIColor.black.cgColor
-        tabBarView.layer.shadowOffset = CGSize(width: 0, height: 4) // Adjust the offset as needed
-        tabBarView.layer.shadowOpacity = 0.8 // Adjust the opacity as needed
-        tabBarView.layer.shadowRadius = 5.0 // Adjust the shadow radius as needed
+        tabBarView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        tabBarView.layer.shadowOpacity = 0.8
+        tabBarView.layer.shadowRadius = 5.0
     }
     
     

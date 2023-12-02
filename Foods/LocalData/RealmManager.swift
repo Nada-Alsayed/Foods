@@ -9,9 +9,13 @@ import Foundation
 import RealmSwift
 
 class RealmManager{
-    private var realmManager : Realm!
     
+    //MARK: - Variables
+    
+    private var realmManager : Realm!
     static let sharedInstance = RealmManager()
+    
+    //MARK: - Init
     
     private init(){
         do{
@@ -20,6 +24,8 @@ class RealmManager{
             print("Realm CreationError \(error.localizedDescription)")
         }
     }
+    
+    //MARK: - Methods
     
     func insertToRealm(recipe : RecipeRealm){
         do{
@@ -31,7 +37,6 @@ class RealmManager{
         }
     }
     
-    // Delete data from Realm
     func deleteFromRealm(recipe: RecipeRealm) {
         do {
             try realmManager.write {
@@ -41,26 +46,23 @@ class RealmManager{
             print("Error deleting from Realm: \(error.localizedDescription)")
         }
     }
-
+    
     func deleteFromRealmById(id:String){
         guard let recipe = realmManager.object(ofType: RecipeRealm.self, forPrimaryKey: id) else { return  }
         deleteFromRealm(recipe: recipe)
     }
     
-    // Get all data from Realm
     func getAllRecipes() -> [RecipeRealm] {
         let recipes = realmManager.objects(RecipeRealm.self)
         return Array(recipes)
     }
     
-    // Get a RecipeRealm object by its ID
-   func getRecipe(withId id: String) -> RecipeRealm? {
-       return realmManager.object(ofType: RecipeRealm.self, forPrimaryKey: id)
-   }
+    func getRecipe(withId id: String) -> RecipeRealm? {
+        return realmManager.object(ofType: RecipeRealm.self, forPrimaryKey: id)
+    }
     
-    // Check if a RecipeRealm object with a specific primary key exists
     func doesRecipeExist(withId id: String) -> Bool {
-        if realmManager.object(ofType: RecipeRealm.self, forPrimaryKey: id) != nil {
+        if realmManager.object(ofType: RecipeRealm.self, forPrimaryKey: id) != nil{
             return true
         } else {
             return false
