@@ -30,8 +30,12 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let realm = try? Realm()
+        
+        //MARK: - to get the realm file path
+
         let realmURL = realm?.configuration.fileURL
         print(realmURL)
+        
         indicatorView.layer.cornerRadius =
         indicatorView.layer.bounds.size.height / 2
         indicatorView.layer.masksToBounds = true
@@ -82,7 +86,7 @@ class HomeVC: UIViewController {
     }
     
     @objc func logout(){
-        showAlertWithAction(title: "Logout Alert!", titleAction: "Logout", titleNoAction: "No", message: "Are you sure you want to logout?", viewController: self) {
+        showAlertWithAction(title: ConstantsStrings.ALERT, titleAction: ConstantsStrings.LOGOUT, titleNoAction: ConstantsStrings.NO_ACTION_BTN, message: ConstantsStrings.CONFIRM_LOGOUT_MESSEGE, viewController: self) {
             self.keychain.clear()
             self.navigateToLogin()
         }

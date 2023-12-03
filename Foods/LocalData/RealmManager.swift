@@ -26,6 +26,7 @@ class RealmManager{
             }
         }
     )
+    
     //MARK: - Init
     
     private init(){
@@ -41,11 +42,7 @@ class RealmManager{
     
     func insertToRealm(recipe : RecipeRealm){
         do{
-          //  print("bbbbb\(recipe.ingredients.toArray() ?? [String]())")
-
             try realmManager.write{
-               // print("uuuuuuu\(recipe.ingredients.toArray() ?? [String]())")
-
                 realmManager.add(recipe)
             }
         } catch {

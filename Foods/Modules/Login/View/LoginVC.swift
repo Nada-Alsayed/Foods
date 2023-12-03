@@ -52,10 +52,10 @@ class LoginVC: UIViewController {
                 keychain.set(email, forKey: ConstantsStrings.EMAIL)
                 navigateToHome()
             } else {
-                showToast(controller: self, message:"Data not valid", seconds: 2)
+                showToast(controller: self, message:ConstantsStrings.NOT_VALID_DATA_TOAST, seconds: 2)
             }
         }else{
-           showToast(controller: self, message:"Please enter all fields", seconds: 2)
+            showToast(controller: self, message:ConstantsStrings.ENTER_ALL_FIELDS_TOAST, seconds: 2)
         }
     }
     

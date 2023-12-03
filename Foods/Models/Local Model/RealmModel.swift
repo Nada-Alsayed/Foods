@@ -64,15 +64,9 @@ class RecipeRealm: Object {
         realmRecipe.recipeDescription = recipe.description
         realmRecipe.highlighted = recipe.highlighted ?? false
         realmRecipe.deliverableIngredients.append(objectsIn:recipe.deliverableIngredients ?? [])
-        
         if let ingredients = recipe.ingredients {
             realmRecipe.ingredients.append(objectsIn: ingredients)
-          //  print("oooo\(realmRecipe.ingredients.toArray())")
-            
-        } else {
-          //  print("ooooIngredients is nil")
         }
-       // print("saved obj \(realmRecipe.ingredients.toArray())")
       return realmRecipe
     }
 }

@@ -26,7 +26,6 @@ class FavoriteVC: UIViewController {
         setTableViewConfiguration()
         recipes = viewModel.getSoredFavs()
         tableView.reloadData()
-        print("kk\( recipes[0].ingredients)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +72,7 @@ extension FavoriteVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            showAlertWithAction(title: "Delete alert!", titleAction: "Delete", titleNoAction: "No", message: "Are you sure you want to delete this recipe from your favorite recipes list?", viewController: self) {
+            showAlertWithAction(title: ConstantsStrings.ALERT, titleAction: ConstantsStrings.DELETE_BTN, titleNoAction: ConstantsStrings.NO_ACTION_BTN, message: ConstantsStrings.CONFIRM_DELETE_MESSAGE, viewController: self) {
                 self.viewModel.deleteFavRecipe(recipe:self.recipes[indexPath.row])
                 self.recipes.remove(at: indexPath.row)
                 if(self.recipes.count != 0){

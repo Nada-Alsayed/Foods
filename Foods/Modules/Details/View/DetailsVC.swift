@@ -29,13 +29,11 @@ class DetailsVC: UIViewController {
     var recipe : Reciepe?
     var ingredientsArray : [String]?
     lazy var viewModel = FavoriteViewModel()
-    let group = DispatchGroup()
     
     //MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // print(recipe?.ingredients)
         setTableViewConfiguration()
         addTapRecogniser()
         setPageWithData()
@@ -114,16 +112,15 @@ class DetailsVC: UIViewController {
     @objc func addToFavorite(){
         if viewModel.isRecipeExist(recipeID: recipe?.id ?? "0") == true
         {
-            showAlertWithAction(title: "Delete alert!", titleAction: "Delete", titleNoAction: "No", message: "Are you sure you want to delete this recipe from your favorite recipes list?", viewController: self) {
+            showAlertWithAction(title: ConstantsStrings.ALERT, titleAction: ConstantsStrings.DELETE_BTN, titleNoAction: ConstantsStrings.NO_ACTION_BTN, message: ConstantsStrings.CONFIRM_DELETE_MESSAGE, viewController: self) {
                 self.favoriteImg.image  = UIImage(systemName: "heart")
                 self.viewModel.deleteFavRecipeById(id: self.recipe?.id ?? "")
             }
 
         }else{
             let realmObj = RecipeRealm().convertToRealmObject(from: self.recipe ?? Reciepe())
-        //    print("inDetails \(realmObj.ingredients.toArray())")
             favoriteImg.image = UIImage(systemName: "heart.fill")
-            showToast(controller: self, message: "Recipe added to your favorites successfully", seconds: 2)
+            showToast(controller: self, message:ConstantsStrings.ADDED_TOAST, seconds: 2)
             viewModel.insertFavRecipe(recipe: realmObj)
         }
     }

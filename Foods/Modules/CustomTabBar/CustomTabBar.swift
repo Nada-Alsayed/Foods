@@ -22,9 +22,6 @@ class CustomTabBar: UIViewController {
    
     //MARK: - Variables
 
-//    override var preferredStatusBarStyle: UIStatusBarStyle{
-//        return .lightContent
-//    }
     var isHomeSelected = true
     var isFavoriteSelected = false
     override func viewDidLoad() {

@@ -8,6 +8,9 @@
 import Foundation
 
 class Helper{
+    
+    //MARK: - Methods
+
    static func convertISO8601DurationToTime(duration: String) -> String? {
         let iso8601Duration = duration.replacingOccurrences(of: "PT", with: "")
         
@@ -21,6 +24,9 @@ class Helper{
         return nil
     }
 }
+
+//MARK: -Extension
+
 extension String {
     func toInt() -> Int? {
         return Int(self)

@@ -37,7 +37,7 @@ class  HomeViewModel{
                 self.result = root
             }
         }else{
-            vc.showToast(controller: vc, message: "Check your network conniction", seconds: 1)
+            vc.showToast(controller: vc, message: ConstantsStrings.CHECK_NETWORK_TOAST , seconds: 1)
 //            var x : [Reciepe] = [Reciepe]()
 //            let storedArray = FavoriteViewModel().getSoredFavs()
 //            for i in storedArray{
