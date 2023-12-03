@@ -27,12 +27,15 @@ class DetailsVC: UIViewController {
     //MARK: - Variables
     
     var recipe : Reciepe?
+    var ingredientsArray : [String]?
     lazy var viewModel = FavoriteViewModel()
+    let group = DispatchGroup()
     
     //MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       // print(recipe?.ingredients)
         setTableViewConfiguration()
         addTapRecogniser()
         setPageWithData()
@@ -76,15 +79,17 @@ class DetailsVC: UIViewController {
     
     func setPageWithData(){
         guard let recipe = recipe else {return}
+        let readableTime = Helper.convertISO8601DurationToTime(duration:  recipe.time ?? "N/A")
         recipeName.text = recipe.name
         recipeHeadline.text = recipe.headline
-        tiime.text = recipe.time
+        tiime.text = readableTime
         calories.text = recipe.calories
         carbs.text = recipe.carbos
         fats.text = recipe.fats
         proteins.text = recipe.proteins
         decriptionL.text = recipe.description
         recipeImg.kf.setImage(with:URL(string: recipe.image ?? ""))
+        ingredientsArray = recipe.ingredients ?? []
     }
     
     func showFavoriteImg(){
@@ -115,23 +120,26 @@ class DetailsVC: UIViewController {
             }
 
         }else{
-            viewModel.insertFavRecipe(recipe: RecipeRealm().convertToRealmObject(from: self.recipe ?? Reciepe()))
+            let realmObj = RecipeRealm().convertToRealmObject(from: self.recipe ?? Reciepe())
+        //    print("inDetails \(realmObj.ingredients.toArray())")
             favoriteImg.image = UIImage(systemName: "heart.fill")
             showToast(controller: self, message: "Recipe added to your favorites successfully", seconds: 2)
+            viewModel.insertFavRecipe(recipe: realmObj)
         }
     }
+    
 }
 
 //MARK: - Extensions
 
 extension DetailsVC : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipe?.ingredients?.count ?? 0
+        return ingredientsArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: igredientsCell.id, for: indexPath) as!igredientsCell
-        cell.addCellConfiguration(label: recipe?.ingredients?[indexPath.row])
+        cell.addCellConfiguration(label: ingredientsArray?[indexPath.row])
         return cell
     }
 }

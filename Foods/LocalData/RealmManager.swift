@@ -14,11 +14,23 @@ class RealmManager{
     
     private var realmManager : Realm!
     static let sharedInstance = RealmManager()
-    
+    let config = Realm.Configuration(
+        schemaVersion: 2,
+        migrationBlock: { migration, oldSchemaVersion in
+            if oldSchemaVersion < 2 {
+                // Add migration for the 'weeks' property
+                migration.enumerateObjects(ofType: RecipeRealm.className()) { oldObject, newObject in
+                    // Handle migration logic for each object
+                    newObject?["keywords"] = List<String>()
+                }
+            }
+        }
+    )
     //MARK: - Init
     
     private init(){
         do{
+            Realm.Configuration.defaultConfiguration = config
             realmManager = try Realm()
         }catch{
             print("Realm CreationError \(error.localizedDescription)")
@@ -29,7 +41,11 @@ class RealmManager{
     
     func insertToRealm(recipe : RecipeRealm){
         do{
+          //  print("bbbbb\(recipe.ingredients.toArray() ?? [String]())")
+
             try realmManager.write{
+               // print("uuuuuuu\(recipe.ingredients.toArray() ?? [String]())")
+
                 realmManager.add(recipe)
             }
         } catch {

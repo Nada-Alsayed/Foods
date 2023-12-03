@@ -8,6 +8,7 @@
 import UIKit
 import KeychainSwift
 import Reachability
+import RealmSwift
 
 class HomeVC: UIViewController {
     
@@ -28,6 +29,9 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let realm = try? Realm()
+        let realmURL = realm?.configuration.fileURL
+        print(realmURL)
         indicatorView.layer.cornerRadius =
         indicatorView.layer.bounds.size.height / 2
         indicatorView.layer.masksToBounds = true

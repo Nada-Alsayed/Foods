@@ -39,7 +39,7 @@ struct Reciepe: Codable {
         recipe.name = realmRecipe.name
         recipe.time = realmRecipe.time
         recipe.image = realmRecipe.image
-        recipe.weeks = realmRecipe.weeks?.toArray()
+        recipe.weeks = realmRecipe.weeks.toArray()
         recipe.carbos = realmRecipe.carbos
         recipe.fibers = realmRecipe.fibers
         recipe.rating = realmRecipe.rating
@@ -47,15 +47,15 @@ struct Reciepe: Codable {
         recipe.ratings = realmRecipe.ratings
         recipe.calories = realmRecipe.calories
         recipe.headline = realmRecipe.headline
-        recipe.keywords = realmRecipe.keywords?.toArray()
-        recipe.products = realmRecipe.products?.toArray()
+        recipe.keywords = realmRecipe.keywords.toArray()
+        recipe.products = realmRecipe.products.toArray()
         recipe.proteins = realmRecipe.proteins
         recipe.favorites = realmRecipe.favorites
         recipe.difficulty = realmRecipe.difficulty
         recipe.description = realmRecipe.recipeDescription
         recipe.highlighted = realmRecipe.highlighted
-        recipe.ingredients = realmRecipe.ingredients?.toArray()
-        recipe.deliverableIngredients = realmRecipe.deliverableIngredients?.toArray()
+        recipe.ingredients = realmRecipe.ingredients.toArray()
+        recipe.deliverableIngredients = realmRecipe.deliverableIngredients.toArray()
 
         return recipe
     }

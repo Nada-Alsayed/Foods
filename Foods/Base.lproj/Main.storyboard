@@ -451,10 +451,10 @@
                                 <rect key="frame" x="0.0" y="112" width="393" height="740"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hyp-cc-0uv">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="601.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="671.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-Pw-DYL">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="360"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashBG" translatesAutoresizingMaskIntoConstraints="NO" id="mEw-UA-UEW">
                                                         <rect key="frame" x="96.666666666666686" y="8" width="200" height="200"/>
@@ -463,25 +463,25 @@
                                                             <constraint firstAttribute="height" constant="200" id="dHT-DA-c6I"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Recipe headlines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txN-FC-pvJ">
-                                                        <rect key="frame" x="8" y="237.66666666666669" width="377" height="25.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Recipe headlines" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txN-FC-pvJ">
+                                                        <rect key="frame" x="8" y="237.66666666666666" width="377" height="58.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Cooking time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t24-8t-o36">
-                                                        <rect key="frame" x="0.0" y="263" width="393" height="25.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="296.33333333333331" width="393" height="25.333333333333314"/>
                                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="21"/>
                                                         <color key="textColor" red="0.90346642700000002" green="0.5289516434" blue="0.0065802602819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8C5-0j-fE3">
-                                                        <rect key="frame" x="8" y="288.33333333333331" width="377" height="26.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8C5-0j-fE3">
+                                                        <rect key="frame" x="8" y="321.66666666666669" width="377" height="26.333333333333314"/>
                                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="22"/>
                                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP5-da-B8z">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Recipe Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP5-da-B8z">
                                                         <rect key="frame" x="0.0" y="210" width="393" height="27.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="23"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -490,9 +490,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="8C5-0j-fE3" secondAttribute="bottom" constant="12" id="353-j1-R0T"/>
                                                     <constraint firstItem="txN-FC-pvJ" firstAttribute="top" secondItem="iP5-da-B8z" secondAttribute="bottom" id="Eax-Kl-pe2"/>
                                                     <constraint firstItem="8C5-0j-fE3" firstAttribute="leading" secondItem="IPq-Pw-DYL" secondAttribute="leading" constant="8" id="Fh1-ZF-21c"/>
-                                                    <constraint firstAttribute="height" constant="330" id="HCp-YB-wyI"/>
+                                                    <constraint firstAttribute="height" constant="360" id="HCp-YB-wyI"/>
                                                     <constraint firstAttribute="trailing" secondItem="iP5-da-B8z" secondAttribute="trailing" id="Kty-tk-74Q"/>
                                                     <constraint firstAttribute="trailing" secondItem="8C5-0j-fE3" secondAttribute="trailing" constant="8" id="Pa5-Ww-Yos"/>
                                                     <constraint firstItem="iP5-da-B8z" firstAttribute="leading" secondItem="IPq-Pw-DYL" secondAttribute="leading" id="W10-7W-RJq"/>
@@ -508,7 +509,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="xcc-ZX-3Mb">
-                                                <rect key="frame" x="0.0" y="338" width="393" height="58.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="368" width="393" height="58.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aop-Hp-BBY">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="27.666666666666668"/>
@@ -526,7 +527,7 @@
                                                 <color key="backgroundColor" red="0.90346642700000002" green="0.5289516434" blue="0.0065802602819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="eu8-Ge-6lO">
-                                                <rect key="frame" x="0.0" y="404.33333333333337" width="393" height="55.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="434.33333333333337" width="393" height="55.333333333333314"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="85X-lP-7Or">
                                                         <rect key="frame" x="0.0" y="0.0" width="126.33333333333333" height="55.333333333333336"/>
@@ -584,26 +585,38 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYL-nf-TRX">
-                                                <rect key="frame" x="0.0" y="467.66666666666663" width="393" height="26.666666666666686"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYL-nf-TRX">
+                                                <rect key="frame" x="0.0" y="497.66666666666663" width="393" height="26.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="23"/>
                                                 <color key="textColor" red="0.90346642700000002" green="0.5289516434" blue="0.0065802602819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-Cn-xeH">
-                                                <rect key="frame" x="0.0" y="502.33333333333331" width="393" height="26.333333333333314"/>
-                                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="22"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hb-BC-NsI">
-                                                <rect key="frame" x="0.0" y="536.66666666666663" width="393" height="26.666666666666629"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOU-L9-buy">
+                                                <rect key="frame" x="0.0" y="532.33333333333337" width="393" height="66.333333333333371"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnp-Cn-xeH">
+                                                        <rect key="frame" x="10" y="3.0000000000000036" width="373" height="60.333333333333343"/>
+                                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="22"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Gnp-Cn-xeH" secondAttribute="trailing" constant="10" id="JZ4-E3-FBe"/>
+                                                    <constraint firstItem="Gnp-Cn-xeH" firstAttribute="leading" secondItem="mOU-L9-buy" secondAttribute="leading" constant="10" id="W73-j8-BSe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Gnp-Cn-xeH" secondAttribute="bottom" constant="3" id="jUD-Rq-NFc"/>
+                                                    <constraint firstItem="Gnp-Cn-xeH" firstAttribute="top" secondItem="mOU-L9-buy" secondAttribute="top" constant="3" id="z8n-QC-spZ"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hb-BC-NsI">
+                                                <rect key="frame" x="0.0" y="606.66666666666663" width="393" height="26.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="23"/>
                                                 <color key="textColor" red="0.90346642700000002" green="0.5289516434" blue="0.0065802602819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ty4-2g-ZmY">
-                                                <rect key="frame" x="0.0" y="571.33333333333337" width="393" height="30"/>
+                                                <rect key="frame" x="0.0" y="641.33333333333337" width="393" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="tED-kv-Xf1"/>

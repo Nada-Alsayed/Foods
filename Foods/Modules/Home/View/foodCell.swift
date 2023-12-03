@@ -39,17 +39,18 @@ class foodCell: UITableViewCell {
         recipeImg.layer.cornerRadius = recipeImg.layer.frame.size.height / 2
     }
     func configureCell(recipe:Reciepe){
-        
+        let readableTime = Helper.convertISO8601DurationToTime(duration:  recipe.time ?? "N/A")
         recipeImg.kf.setImage(with:URL(string: recipe.image ?? ""))
         recipeName.text = recipe.name
-        recipeTime.text = recipe.time
+        recipeTime.text = readableTime
         recipeRate.text = "\(recipe.rating ?? 0.0) "
     }
     
     func configureCell(recipeRealm:RecipeRealm){
+        let readableTime = Helper.convertISO8601DurationToTime(duration:  recipeRealm.time ?? "N/A")
         recipeImg.kf.setImage(with:URL(string: recipeRealm.image ?? ""))
         recipeName.text = recipeRealm.name
-        recipeTime.text = recipeRealm.time
+        recipeTime.text = readableTime
         recipeRate.text = "\(recipeRealm.rating ) "
     }
 }

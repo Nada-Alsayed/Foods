@@ -26,6 +26,7 @@ class FavoriteVC: UIViewController {
         setTableViewConfiguration()
         recipes = viewModel.getSoredFavs()
         tableView.reloadData()
+        print("kk\( recipes[0].ingredients)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
