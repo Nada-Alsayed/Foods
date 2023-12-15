@@ -62,9 +62,7 @@ class DetailsVC: UIViewController {
     //MARK: - IBActions
 
     @IBAction func goBack(_ sender: Any) {
-        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: ConstantsStrings.TABBAR_VC) as! CustomTabBar
-        homeVC.modalPresentationStyle = .fullScreen
-        present(homeVC, animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
     //MARK: - Methods

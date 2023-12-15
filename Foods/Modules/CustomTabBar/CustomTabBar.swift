@@ -24,6 +24,7 @@ class CustomTabBar: UIViewController {
 
     var isHomeSelected = true
     var isFavoriteSelected = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarDesign()

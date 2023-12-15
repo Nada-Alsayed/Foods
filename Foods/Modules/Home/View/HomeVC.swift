@@ -93,9 +93,10 @@ class HomeVC: UIViewController {
     }
     
     func navigateToLogin(){
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: ConstantsStrings.LOGIN_VC) as! LoginVC
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: true, completion: nil)
+//        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: ConstantsStrings.LOGIN_VC) as! LoginVC
+//        loginVC.modalPresentationStyle = .fullScreen
+//        present(loginVC, animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 
