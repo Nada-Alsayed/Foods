@@ -34,7 +34,7 @@ class HomeVC: UIViewController {
         //MARK: - to get the realm file path
 
         let realmURL = realm?.configuration.fileURL
-        print(realmURL)
+      //  print(realmURL)
         
         indicatorView.layer.cornerRadius =
         indicatorView.layer.bounds.size.height / 2
@@ -76,7 +76,7 @@ class HomeVC: UIViewController {
         do {
             let reachability = try Reachability()
             if reachability.connection != .unavailable {
-                print("Reachable via WiFi")
+             //   print("Reachable via WiFi")
                 self.fetchData()
             }
             
@@ -93,10 +93,8 @@ class HomeVC: UIViewController {
     }
     
     func navigateToLogin(){
-//        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: ConstantsStrings.LOGIN_VC) as! LoginVC
-//        loginVC.modalPresentationStyle = .fullScreen
-//        present(loginVC, animated: true, completion: nil)
         dismiss(animated: true)
+
     }
 }
 
